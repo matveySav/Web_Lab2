@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded',function(){
     createPageStructure();
     loadTasks();
     renderTasks();
@@ -8,9 +8,9 @@ document.addEventListener('DOMContentLoaded', function() {
 let tasks = [];
 let dragStartIndex = null;
 
-function createPageStructure() {   
+function createPageStructure(){   
     const container = document.createElement('div');
-    container.className = 'container';
+    container.className ='container';
     
     const header = document.createElement('h1');
     header.className ='header';    
@@ -42,7 +42,7 @@ function createPageStructure() {
     controls.className = 'controls';
     
     const searchInput = document.createElement('input');
-    searchInput.type = 'text';
+    searchInput.type = 'text' ;
     searchInput.className = 'search-input';
     searchInput.placeholder = 'Поиск задач...';
     
@@ -55,7 +55,7 @@ function createPageStructure() {
     ];
     filterOptions.forEach(option => {
         const optElement = document.createElement('option');
-        optElement.value = option.value;
+        optElement.value =option.value;
         optElement.textContent = option.text; 
         filterSelect.appendChild(optElement);
     });
@@ -88,7 +88,7 @@ function createPageStructure() {
 
 function initEventListeners() {
     const addButton = document.querySelector('.add-btn');
-    const taskInput = document.querySelector('.task-input');
+    const taskInput = document.querySelector('.task-input') ;
     const taskDate = document.querySelector('.task-date');
     const searchInput = document.querySelector('.search-input');
     const filterSelect = document.querySelector('.filter-select');
@@ -97,7 +97,7 @@ function initEventListeners() {
     addButton.addEventListener('click', addTask);
     taskInput.addEventListener('keypress', (e) => {
         if (e.key === 'Enter') addTask();
-    });
+    }); 
     searchInput.addEventListener('input', renderTasks);
     filterSelect.addEventListener('change', renderTasks);
     sortSelect.addEventListener('change', renderTasks);
@@ -111,7 +111,7 @@ function addTask() {
     const taskDate = document.querySelector('.task-date');
     const text = taskInput.value.trim();
     const date = taskDate.value;
-
+ 
     if (text === '') {
         alert('Введите текст задачи!');
         return;
@@ -122,7 +122,7 @@ function addTask() {
         date: date,
         completed: false,
         createdAt: new Date().toISOString()
-    };
+     };
     tasks.push(newTask);
     saveTasks();
     renderTasks();
@@ -228,9 +228,7 @@ function saveTasks() {
 }
 function loadTasks() {
     const savedTasks = localStorage.getItem('todoTasks');
-    if (savedTasks) {
-        tasks = JSON.parse(savedTasks);
-    }
+    if (savedTasks) {tasks = JSON.parse(savedTasks);}
 }
 function renderTasks() {
     const tasksList = document.querySelector('.tasks-list');

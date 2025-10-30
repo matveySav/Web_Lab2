@@ -75,7 +75,7 @@ body {
     cursor: grab;
 }
 
-.task-item.completed {
+.task-item.completed{
     background: #d4edda;
     text-decoration: line-through;
     opacity: 0.7;
@@ -94,7 +94,7 @@ body {
     font-size: 14px;
     margin-right: 10px;
 }
-.task-actions {
+.task-actions{
     display: flex;
     gap: 5px;
 }
@@ -125,22 +125,6 @@ body {
     font-style: italic;
     padding: 40px;
 }
-@media (max-width: 768px) {
-    .container {
-        padding: 15px;
-    }
-    .add-task-form, .controls {
-        flex-direction: column;
-    }
-    .task-item {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 10px;
-    }
-    .task-actions {
-        align-self: flex-end;
-    }
-}
 .modal-overlay {
     position: fixed;
     top: 0;
@@ -153,7 +137,7 @@ body {
     align-items: center;
     z-index: 1000;
 }
-.modal-content {
+.modal-content{
     background: white;
     padding: 20px;;
     width: 90%;
@@ -180,7 +164,7 @@ body {
     gap: 10px;
     justify-content: flex-end;
 }
-.modal-btn {
+.modal-btn{
     padding: 10px 20px;
     border: none;
     cursor: pointer;
@@ -200,11 +184,28 @@ body {
 .cancel-btn:hover {
     background: #545b62;
 }
-.task-item.dragging {
+.task-item.dragging{
     opacity: 0.5;
     background: #e9ecef;
 }
-.task-item.drag-over {
+.task-item.drag-over{
     border: 2px dashed #007bff;
     background-color: #e3f2fd;
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 15px;
+    }
+    .add-task-form, .controls {
+        flex-direction: column;
+    }
+    .task-item{
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+    .task-actions {
+        align-self: flex-end;
+    }
 }
