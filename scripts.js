@@ -121,7 +121,7 @@ function addTask() {
         text: text,
         date: date,
         completed: false,
-        createdAt: new Date().toISOString()
+
      };
     tasks.push(newTask);
     saveTasks();
@@ -247,9 +247,9 @@ function renderTasks() {
     });
     
     if (sortSelect.value === 'newest') {
-        filteredTasks.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
+        filteredTasks.sort((a, b) => new Date(b.date) - new Date(a.date));
     } else if (sortSelect.value === 'oldest') {
-        filteredTasks.sort((a, b) => new Date(a.createdAt) - new Date(b.createdAt));
+        filteredTasks.sort((a, b) => new Date(a.date) - new Date(b.date));
     }// default исходный порядок
     
     if (filteredTasks.length === 0) {
